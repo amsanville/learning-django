@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{title | title}}</title>
+    <!-- CDN link for bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <!-- CDN link for icons from Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+</head>
+
+<body>
+    <h1>{{title|title}}</h1>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav">
+                    <li class="nav-item {% block nav_home %}{% endblock nav_home %}">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item {% block nav_all_repos %}{% endblock nav_all_repos %}">
+                        <a class="nav-link" href="{% url 'all-repos' %}">All Repos</a>
+                    </li>
+                    <li class="nav-item {% block nav_repo_size %}{% endblock nav_repo_size %}">
+                        <a class="nav-link" href="{% url 'repo-size' %}">Repo Size</a>
+                    </li>
+                    <li class="nav-item {% block nav_repo_language %}{% endblock nav_repo_language %}">
+                        <a class="nav-link" href="{% url 'repo-languages' %}">Repo Languages</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container card opaque-card">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+
+</html>

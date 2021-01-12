@@ -19,6 +19,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.index, name='index'),
     path('admin/', admin.site.urls),
+    path('', views.index, name='home'),
+    path('all-repos/', views.all_repos, name='all-repos'),
+    path('repo-size/', views.repo_size, name='repo-size'),
+    path('repo-languages/', views.repo_languages, name='repo-languages'),
 ]

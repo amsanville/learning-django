@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{# Navbar Active Link Blocks #}
+{% block nav_home %}
+{% endblock nav_home %}
+
+{% block nav_all_repos %}
+{% endblock nav_all_repos %}
+
+{% block nav_repo_size %}
+{% endblock nav_repo_size %}
+
+{% block nav_repo_language %}
+active
+{% endblock nav_repo_language %}
+
+{# Content Blocks #}
+{% block content %}
+{% if found %}
+<form action="" method="get">
+    <input type="text" name="username" placeholder="username" value="{{username}}">
+    <input type="text" name="repo_name" placeholder="repository name" value="{{repo_name}}">
+    <input type="submit" value="Submit">
+</form>
+<div>
+    <embed type="image/svg+xml" src="{{ chart|safe }}"" />
+</div>
+{% else %}
+<form action="" method="get">
+    <input type="text" name="username" placeholder="username" value="">
+    <input type="text" name="repo_name" placeholder="repository name" value="">
+    <input type="submit" value="Submit">
+</form>
+<p>No such repository.</p>
+{% endif %}
+{% endblock content %}

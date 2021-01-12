@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{# Navbar Active Link Blocks #}
+{% block nav_home %}
+{% endblock nav_home %}
+
+{% block nav_all_repos %}
+active
+{% endblock nav_all_repos %}
+
+{% block nav_repo_size %}
+{% endblock nav_repo_size %}
+
+{% block nav_repo_language %}
+{% endblock nav_repo_language %}
+
+{# Content Blocks #}
+{% block content %}
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Stars</th>
+            <th scope="col">Language</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for repo in repo_data%}
+    <tr>
+        <th>{{repo.name}}</th>
+        <td>{{repo.size}}</td>
+        {% if repo.stargazers > 0%}
+        <td>{{repo.stargazers}}<span class="fa fa-star skill-star"></span></td>
+        {% else %}
+        <td></td>
+        {% endif %}
+        <td>{{repo.language}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
