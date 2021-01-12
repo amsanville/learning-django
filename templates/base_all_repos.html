@@ -23,6 +23,7 @@ active
             <th scope="col">Size</th>
             <th scope="col">Stars</th>
             <th scope="col">Language</th>
+            <th score="col">Link</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +37,11 @@ active
         <td></td>
         {% endif %}
         <td>{{repo.language}}</td>
+        <td>
+        <form action="https://github.com/amsanville/{{repo.name | lower}}" target="_blank">
+            <input type="submit" value="Go to Repo"/>
+        </form>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
